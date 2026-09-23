@@ -3,14 +3,10 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Payment extends Model
 {
-    use HasFactory;
-
     public const TYPE_CARD = 'card';
     public const TYPE_SBP = 'sbp';
     public const TYPE_PROMO = 'promo';
@@ -25,11 +21,6 @@ class Payment extends Model
     protected $casts = [
         'amount' => 'integer',
     ];
-
-    public function master(): BelongsTo
-    {
-        return $this->belongsTo(Master::class);
-    }
 
     public static function isMonetary(self $payment): bool
     {

@@ -7,7 +7,7 @@ use App\Models\Referral;
 use App\Models\ReferralEarning;
 use App\Services\Referral\ReferralService;
 
-class PaymentObserver
+readonly class PaymentObserver
 {
     public function __construct(private ReferralService $referrals)
     {
